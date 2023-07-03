@@ -19,6 +19,10 @@ RUN pip install --upgrade pip
 COPY . $DockerHOME  
 # run this command to install all dependencies  
 RUN pip install -r requirements.txt --no-cache-dir
+
+# run entrypoint.sh
+RUN ["chmod", "+x", "/home/app/webapp/entrypoint.sh"]
+
 # port where the Django app runs  
 EXPOSE 8000  
 # start server  

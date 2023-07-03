@@ -4,6 +4,8 @@ services:
       image: reverseproxy
       ports:
           - 8080:8080
+      volumes:
+        - static:/home/app/webapp/static
       restart: always
       depends_on:
         - backend-user
@@ -27,7 +29,6 @@ services:
   backend-rssfeed:
     image: cap-api-rssfeed
     volumes:
-      - ./cap-api-rssfeed/:/home/app/webapp
       - $HOME/.aws:/root/.aws
     environment:
       PGUSER: $PGUSER
@@ -43,3 +44,5 @@ services:
   #   image: udagram-frontend:local
   #   ports:
   #     - "8100:80"
+volumes:
+  static:
