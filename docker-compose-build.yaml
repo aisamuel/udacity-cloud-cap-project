@@ -1,0 +1,18 @@
+version: "3"
+services:
+  reverseproxy:
+    build:
+      context: ./udagram-reverseproxy
+    image: reverseproxy
+  backend_user:
+    build:
+      context: ./cap-api-user
+    image: cap-api-user
+  backend_feed:
+    build:
+      context: ./cap-api-rssfeed
+    image: cap-api-rssfeed
+  # frontend:
+  #   build:
+  #     context: ./rss-frontend
+  #   image: rss-frontend:local

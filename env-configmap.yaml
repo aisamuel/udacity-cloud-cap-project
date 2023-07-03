@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: env-config
+  namespace: default
+data:
+  URL: "http://localhost:8100"
+  POSTGRES_HOST: "samuelnewdb.cwb1fio8s3ex.us-east-1.rds.amazonaws.com"
+  POSTGRES_DB: "postgres"
+  AWS_BUCKET: "test-2345679-sam-dev"
+  AWS_REGION: "us-east-1"
+  AWS_PROFILE: "default"
+  JWT_SECRET:  "testing"
+  
+
