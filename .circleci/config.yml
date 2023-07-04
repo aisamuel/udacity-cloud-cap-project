@@ -21,13 +21,13 @@ jobs:
             docker build -t cap-api-feed ./cap-api-feed  
             docker build -t cap-api-rssfeed ./cap-api-rssfeed
             docker build -t rss-frontend ./rss-frontend
-            docker build -t udagram-reverseproxy ./udagram-reverseproxy
+            docker build -t cap-reverseproxy ./cap-reverseproxy
             docker tag cap-api-feed aisamuel/cap-api-feed:v1
             docker tag cap-api-rssfeed aisamuel/cap-api-rssfeed:v1
             docker tag rss-frontend aisamuel/rss-frontend:v1
-            docker tag udagram-reverseproxy aisamuel/udagram-reverseproxy:v1
+            docker tag cap-reverseproxy aisamuel/cap-reverseproxy:v1
             echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
             docker push aisamuel/cap-api-feed:v1
             docker push aisamuel/cap-api-rssfeed:v1
-            docker push aisamuel/udagram-reverseproxy:v1
+            docker push aisamuel/cap-reverseproxy:v1
             docker push aisamuel/rss-frontend:v1

@@ -15,7 +15,7 @@ spec:
         app: reverseproxy
     spec:
       containers:
-      - image: aisamuel/udagram-reverseproxy:v1
+      - image: aisamuel/cap-reverseproxy:v1
         name: reverseproxy
         resources:
           requests:
