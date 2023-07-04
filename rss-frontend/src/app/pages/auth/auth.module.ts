@@ -5,11 +5,13 @@ import { AuthRoutingModule } from './auth-routing.module';
 import { FormsModule } from '@angular/forms';
 import { SignupComponent } from './signup/signup.component';
 import { SigninComponent } from './signin/signin.component';
+import { RssfeedListComponent } from './rssfeed-list/rssfeed-list.component';
 
 @NgModule({
   declarations: [
     SignupComponent,
-    SigninComponent
+    SigninComponent,
+    RssfeedListComponent
   ],
   imports: [
     CommonModule,

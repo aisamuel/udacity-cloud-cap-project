@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 import { Observable } from 'rxjs';
@@ -10,6 +10,15 @@ export interface User {
   readonly username: string;
   readonly first_name: string;
   readonly last_name: string;
+}
+
+export interface RssFeed {
+  readonly title: string;
+  readonly link: string;
+  readonly date: string;
+  readonly summary: string;
+  readonly image: string;
+  readonly feed_name: string
 }
 
 export interface Token {
@@ -75,5 +84,12 @@ export class AuthService {
 
   logOut(): void {
     localStorage.removeItem('feed.auth');
+  }
+
+  getRssFeeds(): Observable<RssFeed[]> {
+    const accessToken = AuthService.getAccessToken();
+    const headers = new HttpHeaders({ Authorization: `Bearer ${accessToken}` });
+    const url = environment.apiHost + 'feed/api/articles/';
+    return this.http.get<RssFeed[]>(url);
   }
 }

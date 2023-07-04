@@ -28,7 +28,7 @@ export class SigninComponent {
     this.authService.logIn(
       this.user.username, this.user.password
     ).subscribe({
-      complete: () => this.router.navigateByUrl(''),
+      complete: () => this.router.navigateByUrl('/authentication/rss-feed-list'),
       error: (error) => console.error(error),
     });
   }

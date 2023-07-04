@@ -4,7 +4,7 @@ import feedparser
 import pytz
 from dateutil import parser
 from django.forms.models import model_to_dict
-from rest_framework.permissions import IsAuthenticatedOrReadOnly
+from rest_framework.permissions import IsAuthenticatedOrReadOnly, AllowAny
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
@@ -226,7 +226,7 @@ class get_articles(APIView):
     """
     Get latest articles
     """
-
+    permission_classes = (AllowAny,)
     
     def get(self, request):
 

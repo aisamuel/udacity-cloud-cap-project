@@ -57,6 +57,10 @@ MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
 ]
 
+CSRF_TRUSTED_ORIGINS = [
+    'http://localhost:8080'
+]
+
 ROOT_URLCONF = 'rss_user.urls'
 
 TEMPLATES = [
