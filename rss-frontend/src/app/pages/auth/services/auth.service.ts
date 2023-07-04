@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 
 import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
+import { environment} from 'src/environments/environment'
 
 export interface User {
   readonly id: string;
@@ -55,7 +56,7 @@ export class AuthService {
     lastName: string,
     password: string,
   ): Observable<User> {
-    const url = '/user/api/sign_up/';
+    const url = environment.apiHost + 'user/api/sign_up/';
     const formData = new FormData();
     formData.append('username', username);
     formData.append('first_name', firstName);
@@ -66,7 +67,7 @@ export class AuthService {
   }
 
   logIn(username: string, password: string): Observable<Token> {
-    const url = '/api/log_in/';
+    const url = environment.apiHost + 'user/api/log_in/';
     return this.http.post<Token>(url, { username, password }).pipe(
       tap(token => localStorage.setItem('feed.auth', JSON.stringify(token)))
     );
