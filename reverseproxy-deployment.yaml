@@ -23,7 +23,11 @@ spec:
             cpu: "250m"
           limits:
             memory: "1024Mi"
-            cpu: "500m"   
+            cpu: "500m"
         ports:
-        - containerPort: 8080
+          - containerPort: 80
+            # This is the port that the reverse proxy server is listening on inside the container
+            name: http
+            # This is the port that the pod exposes to the Kubernetes cluster
+            externalPort: 8080
       restartPolicy: Always
