@@ -1,28 +1,28 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: backend-feed
+  name: backend-rssfeed
   labels:
-    app: backend-feed
+    app: backend-rssfeed
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: backend-feed
+      app: backend-rssfeed
   template:
     metadata:
       labels:
-        app: backend-feed
+        app: backend-rssfeed
     spec:
       # volumes:
       #   - name: configmap-volume
       #     configMap:
       #       name: env-config
       containers:
-      - image: aisamuel/cap-api-feed:v1
-        name: backend-feed
+      - image: aisamuel/cap-api-rssfeed:v1
+        name: backend-rssfeed
         ports:
-        - containerPort: 80 
+        - containerPort: 8000
         resources:
           requests:
             cpu: "250m"

@@ -19,17 +19,17 @@ spec:
       #     configMap:
       #       name: env-config
       containers:
-      - image: aisamuel/udagram-api-user:v1
+      - image: aisamuel/cap-api-user:v1
         name: backend-user 
         ports:
-        - containerPort: 80
+        - containerPort: 8001
         resources:
           requests:
             cpu: "250m"
           limits:
             cpu: "500m" 
         env:
-       - name: PGUSER
+        - name: PGUSER
           valueFrom:
             secretKeyRef:
               name: env-secret
