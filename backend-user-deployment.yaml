@@ -22,7 +22,7 @@ spec:
       - image: aisamuel/cap-api-user:v1
         name: backend-user 
         ports:
-        - containerPort: 8001
+        - containerPort: 8000
         resources:
           requests:
             cpu: "250m"
