@@ -1,1 +1,11 @@
-<p>rssfeed-list works!</p>
+<div class="list-group" *ngFor="let feed of rssFeeds">
+    
+    <a href="{{feed.link}}" target="_blank" class="list-group-item list-group-item-action flex-column align-items-start">
+      <div class="d-flex w-100 justify-content-between">
+        <h5 class="mb-1">{{feed.title}}</h5>
+        <small class="text-muted">{{feed.date}}</small>
+      </div>
+      <p class="mb-1">{{feed.summary}}</p>
+      <small class="text-muted">{{feed.feed_name}}</small>
+    </a>
+</div>
