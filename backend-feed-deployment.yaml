@@ -22,7 +22,7 @@ spec:
       - image: aisamuel/cap-api-rssfeed:v1
         name: backend-rssfeed
         ports:
-        - containerPort: 8001
+        - containerPort: 80
         resources:
           requests:
             cpu: "250m"
