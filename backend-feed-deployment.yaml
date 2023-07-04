@@ -19,7 +19,7 @@ spec:
       #     configMap:
       #       name: env-config
       containers:
-      - image: aisamuel/udagram-api-feed:v1
+      - image: aisamuel/cap-api-feed:v1
         name: backend-feed
         ports:
         - containerPort: 80 
@@ -29,29 +29,29 @@ spec:
           limits:
             cpu: "500m"
         env:
-        - name: POSTGRES_USERNAME
+        - name: PGUSER
           valueFrom:
             secretKeyRef:
               name: env-secret
-              key: POSTGRES_USERNAME 
+              key: PGUSER
 
-        - name: POSTGRES_PASSWORD
+        - name: PGPASSWORD
           valueFrom:
             secretKeyRef:
               name: env-secret
-              key: POSTGRES_PASSWORD
+              key: PGPASSWORD
 
-        - name: POSTGRES_HOST
+        - name: PGHOST
           valueFrom:
             configMapKeyRef:
               name: env-config
-              key: POSTGRES_HOST
+              key: PGHOST
 
-        - name: POSTGRES_DB
+        - name: PGDATABASE
           valueFrom:
             configMapKeyRef:
               name: env-config
-              key: POSTGRES_DB
+              key: PGDATABASE
 
         - name: AWS_BUCKET
           valueFrom:

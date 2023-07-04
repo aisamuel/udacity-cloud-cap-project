@@ -12,7 +12,7 @@ services:
     build:
       context: ./cap-api-rssfeed
     image: cap-api-rssfeed
-  # frontend:
-  #   build:
-  #     context: ./rss-frontend
-  #   image: rss-frontend:local
+  frontend:
+    build:
+      context: ./rss-frontend
+    image: rss-frontend:local
