@@ -5,8 +5,9 @@ metadata:
   namespace: default
 data:
   URL: "http://localhost:8100"
-  PGHOST: "capprojectdb.cakjnml267o3.us-east-1.rds.amazonaws.com"
-  PGDATABASE: "capprojectdb"
+  PGHOST: capprojectdb.cakjnml267o3.us-east-1.rds.amazonaws.com
+  PGDATABASE: capprojectdb
+  DATABASE: postgres
   AWS_BUCKET: "test-2345679-sam-dev"
   AWS_REGION: "us-east-1"
   AWS_PROFILE: "default"
