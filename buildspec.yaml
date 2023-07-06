@@ -14,22 +14,25 @@ phases:
       - echo Building the Docker image...
       # - docker build -t $REPOSITORY_URI:latest .
       # - docker tag $REPOSITORY_URI:latest $REPOSITORY_URI:$IMAGE_TAG
-      - docker build -t cap-api-user cap-api-user
-      - docker build -t cap-api-rssfeed cap-api-rssfeed
-      - docker build -t rss-frontend rss-frontend
-      - docker build -t cap-reverseproxy cap-reverseproxy
-      - docker tag cap-api-user aisamuel/cap-api-user:v1
-      - docker tag cap-api-rssfeed aisamuel/cap-api-rssfeed:v1
-      - docker tag rss-frontend aisamuel/rss-frontend:v1
-      - docker tag cap-reverseproxy aisamuel/cap-reverseproxy:v1
+      - docker build -t $REPOSITORY_URI:cap-api-user cap-api-user
+      - docker build -t $REPOSITORY_URI:cap-api-rssfeed cap-api-rssfeed
+      - docker build -t $REPOSITORY_URI:rss-frontend rss-frontend
+      - docker build -t $REPOSITORY_URI:cap-reverseproxy cap-reverseproxy
+      - docker tag $REPOSITORY_URI:cap-api-user $REPOSITORY_URI:cap-api-user:v1
+      - docker tag $REPOSITORY_URI:cap-api-rssfeed $REPOSITORY_URI:cap-api-rssfeed:v1
+      - docker tag $REPOSITORY_URI:rss-frontend $REPOSITORY_URI:rss-frontend:v1
+      - docker tag $REPOSITORY_URI:cap-reverseproxy $REPOSITORY_URI:cap-reverseproxy:v1
   post_build:
     commands:
       - echo Build completed on `date`
       - echo Pushing the Docker images...
       # - docker push $REPOSITORY_URI:latest
       # - docker push $REPOSITORY_URI:$IMAGE_TAG
-      - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-      - docker push aisamuel/cap-api-user:v1
-      - docker push aisamuel/cap-api-rssfeed:v1
-      - docker push aisamuel/cap-reverseproxy:v1
-      - docker push aisamuel/rss-frontend:v1
+      - docker push $REPOSITORY_URI:cap-api-user
+      - docker push $REPOSITORY_URI:cap-api-rssfeed
+      - docker push $REPOSITORY_URI:cap-reverseproxy
+      - docker push $REPOSITORY_URI:rss-frontend
+      - docker push $REPOSITORY_URI:cap-api-user:v1
+      - docker push $REPOSITORY_URI:cap-api-rssfeed:v1
+      - docker push $REPOSITORY_URI:cap-reverseproxy:v1
+      - docker push $REPOSITORY_URI:rss-frontend:v1
